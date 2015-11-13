@@ -1,0 +1,13 @@
+{{#each this.books}}
+
+<div class="jumbotron spaced-output">
+	<h1>{{title}}</h1>
+	<h2><span class="glyphicon glyphicon-time" aria-hidden="true"></span> : {{year}}</h2>
+	<h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> : {{author}}</h2>
+	<h2><span class="glyphicon glyphicon-book" aria-hidden="true"></span> : {{publisher}}</h2>
+	<p>Overview: {{synopsis}}</p>
+	<p>Category: {{readableBookType}}<p>
+</div>
+
+
+{{/each}}

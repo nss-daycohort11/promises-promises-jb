@@ -1,4 +1,4 @@
-define(function(require) {
+define(function(require) { 
   var _ = require("lodash");
 
   return {

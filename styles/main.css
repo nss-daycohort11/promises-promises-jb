@@ -1,0 +1,7 @@
+.spaced-output{
+	padding: 20px;
+}
+
+.spaced-output:first-of-type{
+	margin-top: 20px;
+}
