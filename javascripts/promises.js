@@ -39,7 +39,7 @@ requirejs(
           console.log("second dataReturned: ", secondDataReturned);
 
           //set book object to second data returned
-          bookObject = s ;
+          bookObject = secondDataReturned;
           
       }).done(function(data){
         console.log("data in done function is ", data);
