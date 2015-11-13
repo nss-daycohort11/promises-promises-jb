@@ -21,6 +21,7 @@ requirejs(
     var typeObject = {};
     var bookObject ={};
     var finalObject ={};
+    var filteredObject ={};
 
       //begin promises tower
       getBookTypes()
@@ -59,7 +60,9 @@ requirejs(
               //set readableBooktype property to science
               bookObject[key].readableBookType = typeObject.fiction.label;
             }
-          };
+          }
+
+
 
           //set final Object with new keys, we could have just referenced book object but whatevs
           finalObject.books = bookObject;
@@ -69,6 +72,39 @@ requirejs(
           require(['hbs!../templates/benBooks'], function(bookTpl) {
             $("#bookList").html(bookTpl(finalObject));
           });
+
+
+
+           //populate select here
+          $("#selected-filter").change(function(){
+            filteredObject = {
+              books :{}
+            };
+
+            var selectedItem = $("#selected-filter").val();
+            console.log("bookObject", bookObject);
+
+            for(var key in bookObject){
+                console.log(bookObject[key].readableBookType);
+
+                if(bookObject[key].readableBookType  === selectedItem){
+
+                  console.log("current book",bookObject[key]);
+                  filteredObject.books[key] = bookObject[key];
+
+              } if (selectedItem === "no filter"){
+                filteredObject = finalObject;
+              }
+            }
+
+                console.log("final Filtered", filteredObject);
+                require(['hbs!../templates/benBooks'], function(bookTpl) {
+                  $("#bookList").html(bookTpl(filteredObject));
+                });
+            
+
+
+                });
 
       });
 

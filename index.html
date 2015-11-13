@@ -10,7 +10,11 @@
 </head>
 
 <body>
-
+	<select id = "selected-filter" placeholder="select">
+		<option value="no filter">No Filter</option>
+        <option id = "Fiction" value = "Fiction">Fiction</option>
+        <option id = "Science &amp; Technology" value = "Science &amp; Technology">Science &amp; Technology</option>
+    </select>
   <div id="bookList">
   
   <script data-main="javascripts/promises" src="lib/bower_components/requirejs/require.js"></script>
