@@ -48,21 +48,16 @@ requirejs(
           console.log("type object", typeObject);
           console.log("book object", bookObject);
 
-          //loop through book object
-          for(var key in bookObject){
-            // console.log("current books", bookObject[key].booktype);
+          typeObject = Object.keys( typeObject ).map(key => typeObject[ key ]);
+          bookObject = Object.keys( bookObject ).map(key => bookObject[ key ]);
 
-            //if booktype is 0
-            if(bookObject[key].booktype === 0){
-              //set readableBooktype Property to function
-              bookObject[key].readableBookType = typeObject.science.label;
-            } else {
-              //set readableBooktype property to science
-              bookObject[key].readableBookType = typeObject.fiction.label;
-            }
-          }
+          finalObject = bookObject.map(book => {
+              book.type = _.find(typeObject, { id:book.booktype }).label;
+              console.log("book", book);
+              return book;
+          });
 
-
+      
 
           //set final Object with new keys, we could have just referenced book object but whatevs
           finalObject.books = bookObject;
